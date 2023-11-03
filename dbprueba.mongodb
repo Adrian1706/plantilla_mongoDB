@@ -1,0 +1,363 @@
+use("LibraryCampus")
+/** -------------------- USER SCHEMA AND COLLECTION -------------------- */
+
+db.createCollection("user", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id", "username", "name", "email", "password", "phone_number", "role"],
+      properties: {
+        id: {
+          bsonType: "int",
+          description: "The unique identifier for the user (integer)"
+        },
+        username: {
+          bsonType: "string",
+          description: "The username is mandatory and must be type string"
+        },
+        name: {
+          bsonType: "string",
+          description: "Name is required and of type string"
+        },
+        email: {
+          bsonType: "string",
+          description: "Email is required and must be a valid email address",
+          pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+        },
+        password: {
+          bsonType: "string",
+          description: "Password is required and must meet security requirements",
+          minLength: 8,
+          pattern: "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$"
+        },
+        phone_number: {
+          bsonType: "string",
+          description: "User's phone number is required"
+        },
+        role: {
+          bsonType: "string",
+          description: "The role is mandatory and must be: Super_administrator, Worker, Customer",
+          pattern: "^(Super_administrator|Worker|Customer)$"
+        }
+      }
+    }
+  }
+});
+
+db.user.insertMany([
+    {
+        id: 1,
+        username: "usuario1",
+        name: "FirstName LastName", 
+        email: "usuario1@example.com",
+        password: "Contraseña1",
+        phone_number: "3504265413",
+        role: "Super_admainistrator"
+    },
+    {
+        id: 2,
+        username: "usuario2",
+        name: "SecondName LastName", 
+        email: "usuario2@example.com",
+        password: "Contraseña2",
+        phone_number: "3504265414",
+        role: "Worker"
+    },
+    {
+        id: 3,
+        username: "usuario3",
+        name: "ThirdName LastName", 
+        email: "usuario3@example.com",
+        password: "Contraseña3",
+        phone_number: "3504265454",
+        role: "Customer"
+    }
+]);
+
+/** -------------------- BOOK SCHEMA AND COLLECTION -------------------- */
+
+db.createCollection("book", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id_book", "nameBook", "author", "description", "creation_date", "state"],
+      properties: {
+        id_book: {
+          bsonType: "int",
+          description: "The id_book is mandatory and must be a number"
+        },
+        nameBook: {
+          bsonType: "string",
+          description: "The nameBook is mandatory and must be a string"
+        },
+        author: {
+          bsonType: "string",
+          description: "The author is mandatory and must be a string"
+        },
+        description: {
+          bsonType: "string",
+          description: "The description is mandatory and must be a string"
+        },
+        creation_date: {
+          bsonType: "string",
+          description: "The creation_date is required and must be a date",
+        },
+        state: {
+          bsonType: "string",
+          description: "The state is mandatory and must be a string with only two allowed values",
+          enum: ["Available", "Borrowed"]
+        }
+      }
+    }
+  }
+});
+
+db.book.insertMany([
+    {
+      id_book: 1,
+      nameBook: "Libro 1",
+      author: "Autor 1",
+      description: "Descripción del Libro 1",
+      creation_date: "2005-09-20",
+      state: "Available"
+    },
+    {
+      id_book: 2,
+      nameBook: "Libro 2",
+      author: "Autor 2",
+      description: "Descripción del Libro 2",
+      creation_date: "2023-09-21",
+      state: "Available"
+    },
+    {
+      id_book: 3,
+      nameBook: "Libro 3",
+      author: "Autor 3",
+      description: "Descripción del Libro 3",
+      creation_date: "2021-05-15",
+      state: "Borrowed"
+    }
+]);
+
+/** -------------------- ROLE SCHEMA AND COLLECTION -------------------- */
+
+db.createCollection("role", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["Id_rol", "nombre_rol", "acceso_rol"],
+      properties: {
+        Id_rol: {
+          bsonType: "int",
+          description: "Unique identifier of the role (integer)"
+        },
+        nombre_rol: {
+          bsonType: "string",
+          enum: ["Super_administrator", "Worker", "Customer"],
+          description: "Role name (string)"
+        },
+        acceso_rol: {
+          bsonType: "object",
+          description: "Role access permissions",
+          patternProperties: {
+            "^[a-zA-Z0-9_]+$": {
+              bsonType: "array",
+              description: "Allowed methods for collection",
+              items: {
+                bsonType: "string",
+                description: "Allowed method (string)"
+              }
+            }
+          },
+          additionalProperties: false
+        }
+      }
+    }
+  }
+});
+
+db.role.insertMany([
+    {
+      Id_rol: 1,
+      nombre_rol: "Super_administrator",
+      acceso_rol: {
+        user: ["GET", "POST", "PUT", "DELETE"],
+      }
+    },
+    {
+      Id_rol: 2,
+      nombre_rol: "Worker",
+      acceso_rol: {
+        user: ["GET", "POST", "PUT"],
+      }
+    },
+    {
+      Id_rol: 3,
+      nombre_rol: "Customer",
+      acceso_rol: {
+        user: ["GET"],
+      }
+    }
+]);
+
+/** -------------------- LOAN SCHEMA AND COLLECTION -------------------- */
+
+db.createCollection("loan", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["id", "loan_date", "deliver_date", "user", "book"],
+      properties: {
+        id: {
+          bsonType: "int",
+          description: "The unique identifier for the loan (integer)"
+        },
+        loan_date: {
+          bsonType: "date",
+          description: "The loan_date is required and must be a date"
+        },
+        deliver_date: {
+          bsonType: "date",
+          description: "The deliver_date is required and must be a date"
+        },
+        user: {
+          bsonType: "object",
+          required: ["id", "username", "name", "email", "password", "phone_number", "role"],
+          properties: {
+            id: {
+              bsonType: "int",
+              description: "The unique identifier for the user (integer)"
+            },
+            username: {
+              bsonType: "string",
+              description: "The username is mandatory and must be type string"
+            },
+            name: {
+              bsonType: "string",
+              description: "Name is required and of type string"
+            },
+            email: {
+              bsonType: "string",
+              pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+              description: "Email should be mandatory"
+            },
+            password: {
+              bsonType: "string",
+              description: "Password is required"
+            },
+            phone_number: {
+              bsonType: "string",
+              description: "User's phone number is required"
+            },
+            role: {
+              bsonType: "string",
+              description: "The role is mandatory and must be: Super_administrator, Worker, Customer",
+              enum: ["Super_administrator", "Worker", "Customer"]
+            }
+          }
+        },
+        book: {
+          bsonType: "object",
+          required: ["id_book", "nameBook", "author", "description", "creation_date", "state"],
+          properties: {
+            id_book: {
+              bsonType: "int",
+              description: "The unique identifier for the book (integer)"
+            },
+            nameBook: {
+              bsonType: "string",
+              description: "The nameBook is mandatory and must be a string"
+            },
+            author: {
+              bsonType: "string",
+              description: "The author is mandatory and must be a string"
+            },
+            description: {
+              bsonType: "string",
+              description: "The description is mandatory and must be a string"
+            },
+            creation_date: {
+              bsonType: "date",
+              description: "The creation_date is required and must be a date"
+            },
+            state: {
+              bsonType: "string",
+              description: "The state is mandatory and must be a string with only two allowed values",
+              enum: ["Available", "Borrowed"]
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+
+db.loan.insertMany([
+  {
+    id: 1,
+    loan_date: new Date("2023-09-20"),
+    deliver_date: new Date("2023-10-20"),
+    user: {
+      id: 1,
+      username: "usuario1",
+      name: "FirstName LastName",
+      email: "usuario1@example.com",
+      password: "Contraseña1",
+      phone_number: "3504265413",
+      role: "Super_administrator",
+    },
+    book: {
+      id_book: 1,
+      nameBook: "Libro 1",
+      author: "Autor 1",
+      description: "Descripción del Libro 1",
+      creation_date: new Date("2005-09-20"),
+      state: "Available",
+    },
+  },
+  {
+    id: 2,
+    loan_date: new Date("2023-09-22"),
+    deliver_date: new Date("2023-10-22"),
+    user: {
+      id: 2,
+      username: "usuario2",
+      name: "SecondName LastName",
+      email: "usuario2@example.com",
+      password: "Contraseña2",
+      phone_number: "3504265414",
+      role: "Worker",
+    },
+    book: {
+      id_book: 2,
+      nameBook: "Libro 2",
+      author: "Autor 2",
+      description: "Descripción del Libro 2",
+      creation_date: new Date("2023-09-21"),
+      state: "Available",
+    },
+  },
+  {
+    id: 3,
+    loan_date: new Date("2023-09-25"),
+    deliver_date: new Date("2023-10-25"),
+    user: {
+      id: 3,
+      username: "usuario3",
+      name: "ThirdName LastName",
+      email: "usuario3@example.com",
+      password: "Contraseña3",
+      phone_number: "3504265454",
+      role: "Customer",
+    },
+    book: {
+      id_book: 3,
+      nameBook: "Libro 3",
+      author: "Autor 3",
+      description: "Descripción del Libro 3",
+      creation_date: new Date("2021-05-15"),
+      state: "Borrowed",
+    },
+  },
+]);

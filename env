@@ -1,0 +1,5 @@
+MY_SERVER={"hostname":"127.10.10.10","port":"5001"}
+ATLAS_USER="adrian1706"
+ATLAS_PASSWORD="Ajbp170605"
+ATLAS_DB="LibraryCampus"
+JWT_SECRET="Campus2023"

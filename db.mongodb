@@ -1,0 +1,366 @@
+db.departamento.insertMany([
+    { nombre: 'Antioquia', IdPaisFk: 1 },
+    { nombre: 'Bogotá', IdPaisFk: 1 },
+    { nombre: 'Cundinamarca', IdPaisFk: 1 },
+    { nombre: 'Valle del Cauca', IdPaisFk: 1 },
+    { nombre: 'Buenos Aires', IdPaisFk: 2 },
+    { nombre: 'Ciudad de México', IdPaisFk: 3 },
+    { nombre: 'Miami', IdPaisFk: 4 },
+    { nombre: 'Londres', IdPaisFk: 5 },
+    { nombre: 'París', IdPaisFk: 6 },
+    { nombre: 'Tokio', IdPaisFk: 7 }
+  ]);
+
+  db.colores.insertMany([
+    { Id: 1, descripcion: 'Negro' },
+    { Id: 2, descripcion: 'Blanco' },
+    { Id: 3, descripcion: 'Rojo' },
+    { Id: 4, descripcion: 'Verde' },
+    { Id: 5, descripcion: 'Azul' },
+    { Id: 6, descripcion: 'Amarillo' },
+    { Id: 7, descripcion: 'Rosa' },
+    { Id: 8, descripcion: 'Morado' },
+    { Id: 9, descripcion: 'Gris' },
+    { Id: 10, descripcion: 'Beige' }
+]);
+
+db.formas_de_pago.insertMany([
+    { Id: 1, descripcion: 'Efectivo' },
+    { Id: 2, descripcion: 'Tarjeta de crédito' },
+    { Id: 3, descripcion: 'Tarjeta de débito' },
+    { Id: 4, descripcion: 'Transferencia bancaria' },
+    { Id: 5, descripcion: 'Paypal' }
+]);
+db.generos.insertMany([
+    { Id: 1, descripcion: 'Masculino' },
+    { Id: 2, descripcion: 'Femenino' },
+    { Id: 3, descripcion: 'Unisex' }
+]);
+db.insumos.insertMany([
+    { Id: 1, nombre: 'Tela de algodón', valor_unit: 10000, stock_min: 100, stock_max: 1000 },
+    { Id: 2, nombre: 'Tela de poliéster', valor_unit: 20000, stock_min: 50, stock_max: 500 },
+    { Id: 3, nombre: 'Hilo', valor_unit: 5000, stock_min: 20, stock_max: 200 },
+    { Id: 4, nombre: 'Botones', valor_unit: 2000, stock_min: 10, stock_max: 100 },
+    { Id: 5, nombre: 'Cierres', valor_unit: 3000, stock_min: 5, stock_max: 50 }
+]);
+
+db.paises.insertMany([
+    { Id: 1, nombre: 'Colombia' },
+    { Id: 2, nombre: 'México' },
+    { Id: 3, nombre: 'Estados Unidos' },
+    { Id: 4, nombre: 'España' },
+    { Id: 5, nombre: 'China' },
+    { Id: 6, nombre: 'Brasil' },
+    { Id: 7, nombre: 'Argentina' },
+    { Id: 8, nombre: 'India' },
+    { Id: 9, nombre: 'Francia' },
+    { Id: 10, nombre: 'Inglaterra' }
+]);
+db.tallas.insertMany([
+    { Id: 1, descripcion: 'XS - Extra pequeña' },
+    { Id: 2, descripcion: 'S - Pequeña' },
+    { Id: 3, descripcion: 'M - Mediana' },
+    { Id: 4, descripcion: 'L - Grande' },
+    { Id: 5, descripcion: 'XL - Extra grande' },
+    { Id: 6, descripcion: 'XXL - Extra extra grande' }
+]);
+db.tipos_estados.insertMany([
+    { Id: 1, Descripcion: 'Nuevo' },
+    { Id: 2, Descripcion: 'En proceso' },
+    { Id: 3, Descripcion: 'Listo para enviar' },
+    { Id: 4, Descripcion: 'Enviado' },
+    { Id: 5, Descripcion: 'Entregado' }
+]);
+db.tipos_personas.insertMany([
+    { Id: 1, Nombre: 'Cliente' },
+    { Id: 2, Nombre: 'Proveedor' },
+    { Id: 3, Nombre: 'Empleado' }
+]);
+db.tipos_proteccion.insertMany([
+    { Id: 1, Descripcion: 'Protección contra el sol' },
+    { Id: 2, Descripcion: 'Protección contra el agua' },
+    { Id: 3, Descripcion: 'Protección contra el frío' },
+    { Id: 4, Descripcion: 'Protección contra el viento' },
+    { Id: 5, Descripcion: 'Protección contra los insectos' }
+]);
+db.departamentos.insertMany([
+    { Id: 1, nombre: 'Antioquia', IdPaisFK: 1 },
+    { Id: 2, nombre: 'Bogotá', IdPaisFK: 1 },
+    { Id: 3, nombre: 'Cundinamarca', IdPaisFK: 1 },
+    { Id: 4, nombre: 'Valle del Cauca', IdPaisFK: 1 },
+    { Id: 5, nombre: 'Buenos Aires', IdPaisFK: 2 },
+    { Id: 6, nombre: 'Ciudad de México', IdPaisFK: 3 },
+    { Id: 7, nombre: 'Miami', IdPaisFK: 4 },
+    { Id: 8, nombre: 'Londres', IdPaisFK: 5 },
+    { Id: 9, nombre: 'París', IdPaisFK: 6 },
+    { Id: 10, nombre: 'Tokio', IdPaisFK: 7 }
+]);
+db.municipios.insertMany([
+    { Id: 1, nombre: 'Medellín', IdDepartamentoFK: 1 },
+    { Id: 2, nombre: 'Bogotá, D.C.', IdDepartamentoFK: 2 },
+    { Id: 3, nombre: 'Zipaquirá', IdDepartamentoFK: 2 },
+    { Id: 4, nombre: 'Cali', IdDepartamentoFK: 4 },
+    { Id: 5, nombre: 'Buenos Aires', IdDepartamentoFK: 5 },
+    { Id: 6, nombre: 'Ciudad de México', IdDepartamentoFK: 6 },
+    { Id: 7, nombre: 'Miami', IdDepartamentoFK: 7 },
+    { Id: 8, nombre: 'Londres', IdDepartamentoFK: 8 },
+    { Id: 9, nombre: 'París', IdDepartamentoFK: 9 },
+    { Id: 10, nombre: 'Tokio', IdDepartamentoFK: 10 }
+]);
+db.estados.insertMany([
+    { Id: 1, descripcion: 'Pendiente', IdTipoEstadoFK: 1 },
+    { Id: 2, descripcion: 'En proceso', IdTipoEstadoFK: 2 },
+    { Id: 3, descripcion: 'Listo para enviar', IdTipoEstadoFK: 3 },
+    { Id: 4, descripcion: 'Enviado', IdTipoEstadoFK: 4 },
+    { Id: 5, descripcion: 'Entregado', IdTipoEstadoFK: 5 }
+]);
+db.clientes.insertMany([
+    { Id: 1, nombre: 'Juan Pérez', IdCliente: '123456789', IdTipoPersonaFK: 1, fechaRegistro: new Date('2023-07-20'), IdMunicipioFK: 1 },
+    { Id: 2, nombre: 'María López', IdCliente: '987654321', IdTipoPersonaFK: 2, fechaRegistro: new Date('2023-08-03'), IdMunicipioFK: 2 },
+    { Id: 3, nombre: 'Sofía García', IdCliente: '321654987', IdTipoPersonaFK: 3, fechaRegistro: new Date('2023-08-10'), IdMunicipioFK: 3 },
+    { Id: 4, nombre: 'Pedro Gómez', IdCliente: '789456123', IdTipoPersonaFK: 1, fechaRegistro: new Date('2023-08-17'), IdMunicipioFK: 4 },
+    { Id: 5, nombre: 'Ana Sánchez', IdCliente: '234567891', IdTipoPersonaFK: 2, fechaRegistro: new Date('2023-08-24'), IdMunicipioFK: 5 },
+    { Id: 6, nombre: 'Carlos Hernández', IdCliente: '654987321', IdTipoPersonaFK: 3, fechaRegistro: new Date('2023-08-31'), IdMunicipioFK: 6 },
+    { Id: 7, nombre: 'Luisa Rodríguez', IdCliente: '9876543210', IdTipoPersonaFK: 1, fechaRegistro: new Date('2023-09-07'), IdMunicipioFK: 7 },
+    { Id: 8, nombre: 'Daniela Castillo', IdCliente: '1098765432', IdTipoPersonaFK: 2, fechaRegistro: new Date('2023-09-14'), IdMunicipioFK: 8 },
+    { Id: 9, nombre: 'Andrés Morales', IdCliente: '3210987654', IdTipoPersonaFK: 3, fechaRegistro: new Date('2023-09-21'), IdMunicipioFK: 9 },
+    { Id: 10, nombre: 'Camila Gutiérrez', IdCliente: '7654321098', IdTipoPersonaFK: 1, fechaRegistro: new Date('2023-09-28'), IdMunicipioFK: 10 }
+]);
+db.empleados.insertMany([
+    { Id: 1, nombre: 'Juan Pérez', IdCargoFK: 1, fecha_ingreso: new Date('2023-07-20'), IdMunicipioFK: 1 },
+    { Id: 2, nombre: 'María López', IdCargoFK: 2, fecha_ingreso: new Date('2023-08-03'), IdMunicipioFK: 2 },
+    { Id: 3, nombre: 'Sofía García', IdCargoFK: 3, fecha_ingreso: new Date('2023-08-10'), IdMunicipioFK: 3 },
+    { Id: 4, nombre: 'Pedro Gómez', IdCargoFK: 1, fecha_ingreso: new Date('2023-08-17'), IdMunicipioFK: 4 },
+    { Id: 5, nombre: 'Ana Sánchez', IdCargoFK: 2, fecha_ingreso: new Date('2023-08-24'), IdMunicipioFK: 5 },
+    { Id: 6, nombre: 'Carlos Hernández', IdCargoFK: 3, fecha_ingreso: new Date('2023-08-31'), IdMunicipioFK: 6 },
+    { Id: 7, nombre: 'Luisa Rodríguez', IdCargoFK: 1, fecha_ingreso: new Date('2023-09-07'), IdMunicipioFK: 7 },
+    { Id: 8, nombre: 'Daniela Castillo', IdCargoFK: 2, fecha_ingreso: new Date('2023-09-14'), IdMunicipioFK: 8 },
+    { Id: 9, nombre: 'Andrés Morales', IdCargoFK: 3, fecha_ingreso: new Date('2023-09-21'), IdMunicipioFK: 9 },
+    { Id: 10, nombre: 'Camila Gutiérrez', IdCargoFK: 1, fecha_ingreso: new Date('2023-09-28'), IdMunicipioFK: 10 }
+]);
+db.ventas.insertMany([
+    { Id: 1, Fecha: new Date('2023-07-20'), IdEmpleadoFK: 1, IdClienteFK: 1, IdFormaPagoFK: 1 },
+    { Id: 2, Fecha: new Date('2023-08-03'), IdEmpleadoFK: 2, IdClienteFK: 2, IdFormaPagoFK: 2 },
+    { Id: 3, Fecha: new Date('2023-08-10'), IdEmpleadoFK: 3, IdClienteFK: 3, IdFormaPagoFK: 3 },
+    { Id: 4, Fecha: new Date('2023-08-17'), IdEmpleadoFK: 1, IdClienteFK: 4, IdFormaPagoFK: 1 },
+    { Id: 5, Fecha: new Date('2023-08-24'), IdEmpleadoFK: 2, IdClienteFK: 5, IdFormaPagoFK: 2 },
+    { Id: 6, Fecha: new Date('2023-08-31'), IdEmpleadoFK: 3, IdClienteFK: 6, IdFormaPagoFK: 3 },
+    { Id: 7, Fecha: new Date('2023-09-07'), IdEmpleadoFK: 1, IdClienteFK: 7, IdFormaPagoFK: 1 },
+    { Id: 8, Fecha: new Date('2023-09-14'), IdEmpleadoFK: 2, IdClienteFK: 8, IdFormaPagoFK: 2 },
+    { Id: 9, Fecha: new Date('2023-09-21'), IdEmpleadoFK: 3, IdClienteFK: 9, IdFormaPagoFK: 3 },
+    { Id: 10, Fecha: new Date('2023-09-28'), IdEmpleadoFK: 1, IdClienteFK: 10, IdFormaPagoFK: 1 }
+]);
+db.prendas.insertMany([
+    { 
+        Id: 1, 
+        Nombre: 'Camiseta de algodón manga corta', 
+        ValorUnitCop: 20000, 
+        ValorUnitUsd: 5, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR001' 
+    },
+    { 
+        Id: 2, 
+        Nombre: 'Camisa de manga larga', 
+        ValorUnitCop: 30000, 
+        ValorUnitUsd: 7.5, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR002' 
+    },
+    { 
+        Id: 3, 
+        Nombre: 'Pantalón de mezclilla', 
+        ValorUnitCop: 40000, 
+        ValorUnitUsd: 10, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR003' 
+    },
+    { 
+        Id: 4, 
+        Nombre: 'Vestido de algodón', 
+        ValorUnitCop: 50000, 
+        ValorUnitUsd: 12.5, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 2, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR004' 
+    },
+    { 
+        Id: 5, 
+        Nombre: 'Zapatos casuales', 
+        ValorUnitCop: 60000, 
+        ValorUnitUsd: 15, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR005' 
+    },
+    { 
+        Id: 6, 
+        Nombre: 'Gafas de sol', 
+        ValorUnitCop: 10000, 
+        ValorUnitUsd: 2.5, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR006' 
+    },
+    { 
+        Id: 7, 
+        Nombre: 'Chaqueta de cuero', 
+        ValorUnitCop: 150000, 
+        ValorUnitUsd: 37.5, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR007' 
+    },
+    { 
+        Id: 8, 
+        Nombre: 'Traje de baño', 
+        ValorUnitCop: 50000, 
+        ValorUnitUsd: 12.5, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR008' 
+    },
+    { 
+        Id: 9, 
+        Nombre: 'Gorra', 
+        ValorUnitCop: 10000, 
+        ValorUnitUsd: 2.5, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR009' 
+    },
+    { 
+        Id: 10, 
+        Nombre: 'Medias', 
+        ValorUnitCop: 5000, 
+        ValorUnitUsd: 1.25, 
+        IdEstadoFK: 1, 
+        IdTipoProteccion: 1, 
+        IdGeneroFK: 1, 
+        Codigo: 'PR010' 
+    }
+]);
+db.inventario.insertMany([
+    { Id: 1, CodInv: 'INV001', IdPrendaFK: 1, ValorVtaCop: 25000, ValorVtaUsd: 6.25 },
+    { Id: 2, CodInv: 'INV002', IdPrendaFK: 2, ValorVtaCop: 37500, ValorVtaUsd: 9.375 },
+    { Id: 3, CodInv: 'INV003', IdPrendaFK: 3, ValorVtaCop: 50000, ValorVtaUsd: 12.5 },
+    { Id: 4, CodInv: 'INV004', IdPrendaFK: 4, ValorVtaCop: 62500, ValorVtaUsd: 15.625 },
+    { Id: 5, CodInv: 'INV005', IdPrendaFK: 5, ValorVtaCop: 75000, ValorVtaUsd: 18.75 },
+    { Id: 6, CodInv: 'INV006', IdPrendaFK: 6, ValorVtaCop: 12500, ValorVtaUsd: 3.125 },
+    { Id: 7, CodInv: 'INV007', IdPrendaFK: 7, ValorVtaCop: 187500, ValorVtaUsd: 46.875 },
+    { Id: 8, CodInv: 'INV008', IdPrendaFK: 8, ValorVtaCop: 62500, ValorVtaUsd: 15.625 },
+    { Id: 9, CodInv: 'INV009', IdPrendaFK: 9, ValorVtaCop: 12500, ValorVtaUsd: 3.125 },
+    { Id: 10, CodInv: 'INV010', IdPrendaFK: 10, ValorVtaCop: 5000, ValorVtaUsd: 1.25 }
+]);
+db.detalle_venta.insertMany([
+    { Id: 1, IdVentaFK: 1, IdProductoFK: 1, IdTallaFK: 1, cantidad: 2, valor_unit: 25000 },
+    { Id: 2, IdVentaFK: 2, IdProductoFK: 2, IdTallaFK: 2, cantidad: 1, valor_unit: 37500 },
+    { Id: 3, IdVentaFK: 3, IdProductoFK: 3, IdTallaFK: 3, cantidad: 3, valor_unit: 50000 },
+    { Id: 4, IdVentaFK: 4, IdProductoFK: 4, IdTallaFK: 4, cantidad: 4, valor_unit: 62500 },
+    { Id: 5, IdVentaFK: 5, IdProductoFK: 5, IdTallaFK: 5, cantidad: 5, valor_unit: 75000 },
+    { Id: 6, IdVentaFK: 6, IdProductoFK: 6, IdTallaFK: 6, cantidad: 6, valor_unit: 12500 }
+]);
+db.orden.insertMany([
+    { Id: 1, fecha: new Date('2023-07-20'), IdEmpleadoFK: 1, IdClienteFK: 1, IdEstadoFK: 1 },
+    { Id: 2, fecha: new Date('2023-08-03'), IdEmpleadoFK: 2, IdClienteFK: 2, IdEstadoFK: 2 },
+    { Id: 3, fecha: new Date('2023-08-10'), IdEmpleadoFK: 3, IdClienteFK: 3, IdEstadoFK: 3 },
+    { Id: 4, fecha: new Date('2023-08-17'), IdEmpleadoFK: 1, IdClienteFK: 4, IdEstadoFK: 4 },
+    { Id: 5, fecha: new Date('2023-08-24'), IdEmpleadoFK: 2, IdClienteFK: 5, IdEstadoFK: 5 }
+]);
+db.detalle_orden.insertMany([
+    { Id: 1, IdOrdenFK: 1, IdPrendaFK: 1, PrendaId: 1, cantidad_producir: 10, IdColorFK: 1, cantidad_producida: 5, IdEstadoFK: 1 },
+    { Id: 2, IdOrdenFK: 2, IdPrendaFK: 2, PrendaId: 2, cantidad_producir: 5, IdColorFK: 2, cantidad_producida: 3, IdEstadoFK: 2 },
+    { Id: 3, IdOrdenFK: 3, IdPrendaFK: 3, PrendaId: 3, cantidad_producir: 3, IdColorFK: 3, cantidad_producida: 3, IdEstadoFK: 3 },
+    { Id: 4, IdOrdenFK: 4, IdPrendaFK: 4, PrendaId: 4, cantidad_producir: 2, IdColorFK: 4, cantidad_producida: 2, IdEstadoFK: 4 },
+    { Id: 5, IdOrdenFK: 5, IdPrendaFK: 5, PrendaId: 5, cantidad_producir: 1, IdColorFK: 5, cantidad_producida: 1, IdEstadoFK: 5 }
+]);
+db.empresa.insertMany([
+    { Id: 1, nit: '900000000-1', razon_social: 'Empresa de Ropa S.A.S.', representante_legal: 'Juan Pérez', FechaCreacion: new Date('2023-01-01'), IdMunicipioFK: 1 },
+    { Id: 2, nit: '900000000-2', razon_social: 'Empresa de Calzado S.A.S.', representante_legal: 'María Rodríguez', FechaCreacion: new Date('2023-02-02'), IdMunicipioFK: 2 },
+    { Id: 3, nit: '900000000-3', razon_social: 'Empresa de Accesorios S.A.S.', representante_legal: 'Pedro Gómez', FechaCreacion: new Date('2023-03-03'), IdMunicipioFK: 3 },
+    { Id: 4, nit: '900000000-4', razon_social: 'Empresa de Textiles S.A.S.', representante_legal: 'Ana García', FechaCreacion: new Date('2023-04-04'), IdMunicipioFK: 4 },
+    { Id: 5, nit: '900000000-5', razon_social: 'Empresa de Confección S.A.S.', representante_legal: 'Carlos Hernández', FechaCreacion: new Date('2023-05-05'), IdMunicipioFK: 5 }
+]);
+db.insumos_prendas.insertMany([
+    { IdInsumoFk: 1, IdPrendaFK: 1, Cantidad: 2 },
+    { IdInsumoFk: 2, IdPrendaFK: 2, Cantidad: 1 },
+    { IdInsumoFk: 3, IdPrendaFK: 3, Cantidad: 3 },
+    { IdInsumoFk: 4, IdPrendaFK: 4, Cantidad: 2 },
+    { IdInsumoFk: 5, IdPrendaFK: 5, Cantidad: 1 },
+    { IdInsumoFk: 6, IdPrendaFK: 6, Cantidad: 10 },
+    { IdInsumoFk: 7, IdPrendaFK: 7, Cantidad: 5 },
+    { IdInsumoFk: 8, IdPrendaFK: 8, Cantidad: 3 },
+    { IdInsumoFk: 9, IdPrendaFK: 9, Cantidad: 2 },
+    { IdInsumoFk: 10, IdPrendaFK: 10, Cantidad: 1 }
+]);
+
+db.inventario_talla.insertMany([
+    { IdInvFK: ObjectId("ID_del_elemento_inventario_1"), IdTallaFK: ObjectId("ID_del_elemento_talla_1") },
+    { IdInvFK: ObjectId("ID_del_elemento_inventario_2"), IdTallaFK: ObjectId("ID_del_elemento_talla_2") },
+    { IdInvFK: ObjectId("ID_del_elemento_inventario_3"), IdTallaFK: ObjectId("ID_del_elemento_talla_3") },
+    { IdInvFK: ObjectId("ID_del_elemento_inventario_4"), IdTallaFK: ObjectId("ID_del_elemento_talla_4") },
+    { IdInvFK: ObjectId("ID_del_elemento_inventario_5"), IdTallaFK: ObjectId("ID_del_elemento_talla_5") }
+]);
+
+db.proveedores.insertMany([
+    { 
+        "Id": 1,
+        "NitProveedor": "900000000-1",
+        "Nombre": "Proveedor 1",
+        "IdTipoPersona": 1,
+        "IdMunicipioFK": 1
+    },
+    { 
+        "Id": 2,
+        "NitProveedor": "900000000-2",
+        "Nombre": "Proveedor 2",
+        "IdTipoPersona": 2,
+        "IdMunicipioFK": 2
+    },
+    { 
+        "Id": 3,
+        "NitProveedor": "900000000-3",
+        "Nombre": "Proveedor 3",
+        "IdTipoPersona": 3,
+        "IdMunicipioFK": 3
+    },
+    { 
+        "Id": 4,
+        "NitProveedor": "900000000-4",
+        "Nombre": "Proveedor 4",
+        "IdTipoPersona": 1,
+        "IdMunicipioFK": 4
+    },
+    { 
+        "Id": 5,
+        "NitProveedor": "900000000-5",
+        "Nombre": "Proveedor 5",
+        "IdTipoPersona": 2,
+        "IdMunicipioFK": 5
+    }
+]);
+
+db.insumo_proveedor.insertMany([
+    { "IdInsumoFK": 1, "IdProveedorFK": 6 },
+    { "IdInsumoFK": 2, "IdProveedorFK": 7 },
+    { "IdInsumoFK": 3, "IdProveedorFK": 8 },
+    { "IdInsumoFK": 4, "IdProveedorFK": 9 },
+    { "IdInsumoFK": 5, "IdProveedorFK": 10 }
+]);
+
+
+
+
+  
